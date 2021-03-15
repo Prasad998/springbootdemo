@@ -1,5 +1,5 @@
 # Start with a base image containing Java runtime
-FROM adoptopenjdk/openjdk15:ubi-minimal-jre
+FROM adoptopenjdk/openjdk11:ubi-minimal-jre
 
 #ENV VERSION DEMO_VERSION
 
