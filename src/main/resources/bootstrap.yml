@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: springbootdemo
+  cloud:
+    vault:
+      host: localhost
+      port: 8200
+      scheme: http
+      token: s.To7q12r59B6XSLXj3tV3BPaq
+
+

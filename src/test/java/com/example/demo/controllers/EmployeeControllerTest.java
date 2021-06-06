@@ -17,7 +17,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 
-import org.springframework.security.test.context.support.WithMockUser;
+//import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
@@ -26,7 +26,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.mockito.Mockito.when;
-import static org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers.springSecurity;
+//import static org.springframework.security.test.web.servlet.setup.SecurityMockMvcConfigurers.springSecurity;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -60,7 +60,7 @@ class EmployeeControllerTest {
 
         mockMvc = MockMvcBuilders
                 .webAppContextSetup(context)
-                .apply(springSecurity())
+               // .apply(springSecurity())
                 .build();
 
         persistableEmployee = new PersistableEmployee();
@@ -76,7 +76,7 @@ class EmployeeControllerTest {
         employeeList.add(employee);
     }
 
-    @WithMockUser("spring")
+    //@WithMockUser("spring")
     @Test
     public void testSuccessfulResponse() throws Exception {
         when(employeeService.getEmployees()).thenReturn(persistableEmployeeList);
