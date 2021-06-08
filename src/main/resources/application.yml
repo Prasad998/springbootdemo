@@ -1,5 +1,10 @@
 server:
   port: 9090
+
+spring:
+  application:
+    name: springbootdemo
+
 spring.cloud.vault:
   host: localhost
   port: 8200
@@ -14,6 +19,9 @@ spring.datasource:
   username: ${dbusername}
   password: ${dbpassword}
   initialization-mode :  always
+  url: jdbc:postgresql://localhost:5432/postgres
+  driverClassName: org.postgresql.Driver
+
 spring.jpa:
   properties:
     hibernate:
@@ -21,4 +29,3 @@ spring.jpa:
   show-sql : true
   hibernate:
     ddl-auto : create
-
