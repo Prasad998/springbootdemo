@@ -1,0 +1,24 @@
+server:
+  port: 9090
+spring.cloud.vault:
+  host: localhost
+  port: 8200
+  scheme: http
+  uri: http://localhost:8200
+  connection-timeout: 5000
+  read-timeout: 15000
+  token: s.To7q12r59B6XSLXj3tV3BPaq
+spring.config.import: vault://
+
+spring.datasource:
+  username: ${dbusername}
+  password: ${dbpassword}
+  initialization-mode :  always
+spring.jpa:
+  properties:
+    hibernate:
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+  show-sql : true
+  hibernate:
+    ddl-auto : create
+

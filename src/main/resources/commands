@@ -12,3 +12,49 @@ quay.io/manojdhanorkar/springbootdemo:0.0.1
 docker tag springbootdemo:0.0.1 thingsboard123/springbootdemo:0.0.1
 docker push thingsboard123/springbootdemo:0.0.1
 
+#Database specific properties will be read from below profile.
+spring.profiles.active=prod
+
+#Logging Properties
+logging.level.org.springframework=WARN
+#Log level controlled in individual profile
+#logging.file.name=./logs/delegate.log
+logging.pattern.console=%d{yyyy-MM-dd HH:mm:ss} - [%thread] %-5level %logger{36} -%msg%n
+logging.pattern.file=%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n
+
+# Tomcat server threads
+server.tomcat.max-threads=300
+server.port=9090
+
+# Metrics
+management.endpoints.web.exposure.include=prometheus,health
+
+
+# Configure datasource
+spring.datasource.url=jdbc:h2:mem:employee
+spring.datasource.driverClassName=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=P@55w0rd
+spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+spring.h2.console.enabled=true
+
+logging.level.com.psl=DEBUG
+
+
+spring.datasource.url=jdbc:postgresql://localhost:5432/postgres
+#spring.datasource.url=jdbc:postgresql://host.docker.internal:5432/postgres
+spring.datasource.driverClassName=org.postgresql.Driver
+spring.datasource.username=${dbusername}
+spring.datasource.password=${dbpassword}
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+logging.level.com.psl=DEBUG
+spring.jpa.show-sql = true
+spring.jpa.hibernate.ddl-auto = create
+#Carefull with below property. this will re-insert data
+spring.datasource.initialization-mode=always
+spring.application.name= springbootdemo
+spring.cloud.vault.host= localhost
+spring.cloud.vault.port= 8200
+spring.cloud.vault.scheme= http
+spring.cloud.vault.token= s.To7q12r59B6XSLXj3tV3BPaq
+spring.config.import= vault://
