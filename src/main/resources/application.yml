@@ -1,31 +1,27 @@
 server:
-  port: 9090
-
+  port: 8080
 spring:
   application:
     name: springbootdemo
-
 spring.cloud.vault:
-  host: localhost
+  host: 10.53.64.49
   port: 8200
   scheme: http
-  uri: http://localhost:8200
+  uri: http://10.53.64.49:8200
   connection-timeout: 5000
   read-timeout: 15000
-  token: s.To7q12r59B6XSLXj3tV3BPaq
+  token: s.Rs3sqas735AQe1SZmJvLM27I
 spring.config.import: vault://
 
 spring.datasource:
-  username: ${dbusername}
-  password: ${dbpassword}
+  username: ${dbuser}
+  password: ${dbpass}
+  host: DBAAS89.persistent.co.in
   initialization-mode :  always
-  url: jdbc:postgresql://localhost:5432/postgres
-  driverClassName: org.postgresql.Driver
+  url: jdbc:oracle:thin:@DBAAS89.persistent.co.in:1522:blued
+  driverClassName: oracle.jdbc.driver.OracleDriver
 
 spring.jpa:
-  properties:
-    hibernate:
-      dialect: org.hibernate.dialect.PostgreSQLDialect
   show-sql : true
   hibernate:
-    ddl-auto : create
+    ddl-auto : create-drop
